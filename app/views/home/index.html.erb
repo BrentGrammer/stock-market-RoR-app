@@ -1,2 +1,26 @@
 <h1>Stock Market</h1>
 <p>hello world</p>
+
+<br />
+
+<%= form_tag root_path, :method => 'POST' do %>
+  <form class="form-group">
+      <%= text_field_tag 'id', nil, placeholder: 'placeholder', size: 50 %>
+      <%= submit_tag 'Submit' %>
+  </form>
+<% end %>
+
+<br />
+
+<% if @stock %>
+  <strong>Company name: </strong><%= @stock.company_name %>
+  <strong>Open Price: </strong><%= @stock.open %>
+  <strong>Close Price: </strong><%= @stock.close %>
+  <strong>Market Cap: </strong><%= @stock.market_cap %>
+<% elsif @nothing %>
+  <%= @nothing %>
+<% end %>
+
+<% if @error %>
+  <%= @error %>
+<% end %>
