@@ -1,0 +1,25 @@
+<% begin %>
+  <% @stock_quote = StockQuote::Stock.quote(@stock.ticker) %>
+<% rescue %>
+  
+<% end %>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= @stock_quote.company_name %> - <%= @stock.ticker %></h3>
+  </div>
+  <div class="panel-body">
+    <strong>Open Price: </strong>$<%= @stock_quote.open %>
+    <strong>Close Price: </strong>$<%= @stock_quote.close %>
+    <strong>Market Cap: </strong>$<%= @stock_quote.market_cap / 1000000 %>M
+  </div>
+</div>
+
+<p>
+
+</p>
+
+
+<%= link_to 'Edit', edit_stock_path(@stock), class: "btn btn-default" %>
+<%= link_to 'Remove Stock', stock_path(@stock), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+<%= link_to 'Back', stocks_path, class: "btn btn-default" %>
