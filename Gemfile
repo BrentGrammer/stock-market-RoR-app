@@ -38,15 +38,16 @@ gem 'devise', '~> 4.6', '>= 4.6.1'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'sqlite3'
 end
 
-group :development do
+group :production do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-  gem 'sqlite3'
-
+  gem 'pg', '~> 1.1', '>= 1.1.4'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'rails_12factor', '~> 0.0.3'
 end
+
 
